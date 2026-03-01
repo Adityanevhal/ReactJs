@@ -7,11 +7,11 @@ const name = ['Aditya', 'Arnav','Anushka','Anvit']
 
   return (
     <div className='parent'>
-      {name.map(function(){
-        return hello
+      {name.map(function(element){
+        return  element 
       })}
         
-    
+    {/* {name} */}
     </div>
   )
 }
