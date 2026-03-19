@@ -45,14 +45,16 @@ const [task, setTask] = useState([])
       </form>
       <div className=' lg:w-1/2 p-10 lg:border-l-2'>
       <h1 className='text-3xl font-bold'>Recent Notes</h1>
-       <div className='flex flex-wrap gap-5 mt-5 overflow-auto h-full'>
-        <div className='h-52 w-42 rounded-2xl bg-white'></div>
-        {task.map(function(){
-            return 1
+       <div className='flex flex-wrap items-start justify-start gap-5 mt-5 overflow-auto h-full'>
+        
+        {task.map(function(elem,idx){
+            return <div key={idx} className='h-52 w-40  py-9 px-3 rounded-xl bg-[url(./assets/image.png)]
+             bg-cover bg-center flex flex-col items-start justify-start'>
+              <h1 className='text-black leading-tight text-xl font-bold'>{elem.title}</h1>
+              <p className='mt-4 leading-tight font-medium text-gray-800'>{elem.details}</p>
+            </div>
         })}
-        <div className='h-52 w-42 rounded-2xl bg-white'></div>
-        <div className='h-52 w-42 rounded-2xl bg-white'></div>
-        <div className='h-52 w-42 rounded-2xl bg-white'></div>
+        
         
        </div>
       </div>
