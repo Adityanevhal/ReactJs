@@ -5,12 +5,15 @@ const App = () => {
  const [title, setTitle] = useState("")
  const [details, setDetails] = useState("")
 
+
+
 const [task, setTask] = useState([])
 
  const handleSubmit = (e) =>{
   e.preventDefault()
-  console.log(title)
-  console.log(details)
+  const copyTask = [...task];
+  copyTask.push({title, details})
+  setTask(copyTask)
   setTitle("")
   setDetails("")
  }
@@ -35,7 +38,7 @@ const [task, setTask] = useState([])
           value={details}
           onChange={(e)=>setDetails(e.target.value)}/>
           
-          <button type="submit" className='px-5 py-2 font-medium w-full bg-amber-500 outline-none text-black rounded'
+          <button type="submit" className='px-5 py-2 active:bg-amber-700 active:scale-98  font-medium w-full bg-amber-500 outline-none text-black rounded'
            > Add Note</button>
         </div>
 
@@ -44,7 +47,9 @@ const [task, setTask] = useState([])
       <h1 className='text-3xl font-bold'>Recent Notes</h1>
        <div className='flex flex-wrap gap-5 mt-5 overflow-auto h-full'>
         <div className='h-52 w-42 rounded-2xl bg-white'></div>
-        <div className='h-52 w-42 rounded-2xl bg-white'></div>
+        {task.map(function(){
+            return 1
+        })}
         <div className='h-52 w-42 rounded-2xl bg-white'></div>
         <div className='h-52 w-42 rounded-2xl bg-white'></div>
         <div className='h-52 w-42 rounded-2xl bg-white'></div>
