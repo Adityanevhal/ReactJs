@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import image from './assets/image.png'
+import { X } from 'lucide-react';
 const App = () => {
   
  const [title, setTitle] = useState("")
@@ -43,6 +44,7 @@ const [task, setTask] = useState([])
         </div>
 
       </form>
+
       <div className=' lg:w-1/2 p-10 lg:border-l-2'>
       <h1 className='text-3xl font-bold'>Recent Notes</h1>
        <div className='flex flex-wrap items-start justify-start gap-5 mt-5 overflow-auto h-full'>
@@ -50,6 +52,7 @@ const [task, setTask] = useState([])
         {task.map(function(elem,idx){
             return <div key={idx} className='h-52 w-40  py-9 px-3 rounded-xl bg-[url(./assets/image.png)]
              bg-cover bg-center flex flex-col items-start justify-start'>
+              <h2 className='bg-red-700 text-xl text-white absolute top-5 right-5 rounded-full'><X /></h2>
               <h1 className='text-black leading-tight text-xl font-bold'>{elem.title}</h1>
               <p className='mt-4 leading-tight font-medium text-gray-800'>{elem.details}</p>
             </div>
