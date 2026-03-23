@@ -18,6 +18,11 @@ const [task, setTask] = useState([])
   setTitle("")
   setDetails("")
  }
+ const deleteNote = (idx) => {
+  const copyTask = [...task];
+  copyTask.splice(idx, 1);
+  setTask(copyTask);
+ }
 
   return ( 
     <div className=' h-screen  bg-black text-white lg:flex'>
@@ -50,11 +55,11 @@ const [task, setTask] = useState([])
        <div className='flex flex-wrap items-start justify-start gap-5 mt-5 overflow-auto h-full'>
         
         {task.map(function(elem,idx){
-            return <div key={idx} className='h-52 w-40  py-9 px-3 rounded-xl bg-[url(./assets/image.png)]
+            return <div key={idx} className='relative h-52 w-40  py-9 px-3 rounded-xl bg-[url(./assets/image.png)]
              bg-cover bg-center flex flex-col items-start justify-start'>
-              <h2 className='bg-red-700 text-xl text-white absolute top-5 right-5 rounded-full'><X /></h2>
+              <h2 onClick={() => deleteNote(idx)} className='absolute top-2 right-2 bg-red-600 text-white font-bold rounded-full p-1 hover:bg-red-800 '><X size={18} /></h2>
               <h1 className='text-black leading-tight text-xl font-bold'>{elem.title}</h1>
-              <p className='mt-4 leading-tight font-medium text-gray-800'>{elem.details}</p>
+              <p className='mt-4 leading-tight text-xs font-bold font-medium text-gray-800'>{elem.details}</p>
             </div>
         })}
         
